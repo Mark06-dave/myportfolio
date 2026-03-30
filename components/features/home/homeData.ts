@@ -47,7 +47,7 @@ export const contactLinks = [
   {
     label: "GitHub",
     value: "github.com/your-username",
-    href: "https://github.com/",
+    href: "https://github.com/Mark06-dave",
     external: true,
   },
 ] as const;
