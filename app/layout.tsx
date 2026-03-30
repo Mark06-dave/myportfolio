@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "../components/providers/ThemeProvider";
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
@@ -26,9 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${spaceMono.variable} antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
